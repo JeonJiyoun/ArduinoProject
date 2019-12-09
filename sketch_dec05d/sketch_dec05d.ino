@@ -208,7 +208,7 @@ void loop() {
       lcd.print("Eat & Be fat");
     }
   }
-///// 초음파 가까이 가면 불끔
+///// 초음파 가까이 가면 불킴
   long duration, distance;   
   digitalWrite(trig_pin, LOW);
   delayMicroseconds(2);
