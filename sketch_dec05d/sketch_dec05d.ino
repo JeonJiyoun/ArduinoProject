@@ -167,8 +167,7 @@ void loop() {
      ////twinkle
    
   }
-  if(!on && (mode == 0 || mode == 4)){ //타이머 시작?
-   Serial.println("Do U wanna start the timer?");
+  if(!on){ //타이머 시작?
    lcd.setCursor(5,0);
     lcd.print("Hi ^_^");
    if(digitalRead(btn_timer) == 0){
@@ -221,24 +220,24 @@ void loop() {
   distance = duration * 17 / 1000;
 
   if(distance < 10){
-    Serial.println("OFF...");
-    analogWrite(aRed, 0);
-    analogWrite(aGreen, 0);
-    analogWrite(aBlue, 0);
+    Serial.println("ON!!");
+    analogWrite(aRed, 255);
+    analogWrite(aGreen, 255);
+    analogWrite(aBlue, 255);
 
-    mode = 4;
+    mode = 1;
   }
   
   int btn = digitalRead(btn_pin);
   //Serial.println(btn);
 
   if(btn == 0){
-    Serial.println("ON...");
-    analogWrite(aRed, 255);
-    analogWrite(aGreen, 255);
-    analogWrite(aBlue, 255);
+    Serial.println("OFF...");
+    analogWrite(aRed, 0);
+    analogWrite(aGreen, 0);
+    analogWrite(aBlue, 0);
 
-    mode = 1;
+    mode = 4;
   }
   
   Serial.flush();
